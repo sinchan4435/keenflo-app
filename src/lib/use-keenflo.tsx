@@ -42,7 +42,7 @@ import {
   shiftMinute,
   tick,
 } from './simulator';
-import { MISSING_ENV_MESSAGE, fetchAll, getSupabase, supabaseConfigured } from './supabase';
+import { MISSING_ENV_MESSAGE, fetchAll, getSupabase } from './supabase';
 import {
   ActionItemRow,
   ActionStatus,
@@ -75,6 +75,8 @@ type Ctx = {
   shiftEnded: boolean;
   /** Tonight's segments, with any fixes applied. */
   liveSegments: Segment[][];
+  /** Tonight's segments with nothing fixed. Used to measure what a fix saved. */
+  liveBaseline: Segment[][];
   live: LiveContext;
   fixedAt: Record<string, number>;
 
@@ -420,7 +422,7 @@ export function KeenFloProvider({ children }: { children: React.ReactNode }) {
     if (e) setWriteError(`Could not acknowledge that event: ${e.message}`);
   }, []);
 
-  const actions = data?.actions ?? [];
+  const actions = useMemo(() => data?.actions ?? [], [data]);
   const openActions = useCallback(
     () => actions.filter((a) => a.status !== 'done'),
     [actions]
@@ -448,6 +450,7 @@ export function KeenFloProvider({ children }: { children: React.ReactNode }) {
     tm,
     shiftEnded: t >= END_SECONDS,
     liveSegments,
+    liveBaseline: baseline.current as Segment[][],
     live,
     fixedAt,
     range,

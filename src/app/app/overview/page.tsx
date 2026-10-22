@@ -22,19 +22,19 @@ import { currentSegment, statsFor } from '@/lib/sim-core';
 import { labelOf, useKeenFlo } from '@/lib/use-keenflo';
 
 const KPI_ICONS: React.ReactNode[] = [
-  <>
+  <React.Fragment key="produced">
     <path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z" />
     <path d="M3 7.5 12 12l9-4.5M12 12v9" />
-  </>,
-  <>
+  </React.Fragment>,
+  <React.Fragment key="efficiency">
     <path d="M4 17a8 8 0 1 1 16 0" />
     <path d="M12 17l4-5" />
-  </>,
-  <>
+  </React.Fragment>,
+  <React.Fragment key="lost">
     <path d="M3 7l6 6 4-4 8 8" />
     <path d="M15 17h6v-6" />
-  </>,
-  <path d="M7 4h11M7 9h11M7 4h3.5a5 5 0 0 1 0 10H7l8 7" />,
+  </React.Fragment>,
+  <path key="rupees" d="M7 4h11M7 9h11M7 4h3.5a5 5 0 0 1 0 10H7l8 7" />,
 ];
 
 export default function OverviewPage() {
