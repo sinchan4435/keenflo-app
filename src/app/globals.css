@@ -2,26 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Landing page hover states. The app shell styles itself inline. */
+.kf-link:hover {
+  opacity: 0.7;
+}
+
+.kf-btn:hover {
+  filter: brightness(1.08);
+}
+
+.kf-card-btn:hover {
+  background: #f8f9fa !important;
+}
+
+.kf-machine-card {
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.kf-machine-card:hover {
+  box-shadow: 0 3.5px 5.5px rgba(0, 0, 0, 0.02), 0 10px 24px rgba(45, 55, 72, 0.1) !important;
+  transform: translateY(-1px);
+}
+
+@media print {
+  .kf-no-print {
+    display: none !important;
   }
 }
