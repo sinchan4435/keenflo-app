@@ -675,7 +675,7 @@ export default function OverviewPage() {
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart
                   data={view.chartRows}
-                  margin={{ top: 8, right: 8, bottom: 0, left: -8 }}
+                  margin={{ top: 14, right: 10, bottom: 0, left: -8 }}
                 >
                   <CartesianGrid stroke={C.line} strokeDasharray="4 4" vertical={false} />
                   <XAxis

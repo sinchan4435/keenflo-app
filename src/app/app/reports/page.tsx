@@ -8,7 +8,7 @@ import {
   Legend,
   Line,
   LineChart,
-  ReferenceArea,
+  ReferenceLine,
   ResponsiveContainer,
   XAxis,
   YAxis,
@@ -703,11 +703,10 @@ export default function ReportsPage() {
                     width={44}
                   />
                   {view.markDate ? (
-                    <ReferenceArea
-                      x1={labelOf(view.markDate, true)}
-                      x2={labelOf(view.markDate, true)}
-                      fill="rgba(79, 209, 197, 0.12)"
-                      strokeOpacity={0}
+                    <ReferenceLine
+                      x={labelOf(view.markDate, true)}
+                      stroke="rgba(79, 209, 197, 0.22)"
+                      strokeWidth={26}
                     />
                   ) : null}
                   {['C', 'D', 'A', 'B', 'plant'].map((k) => (

@@ -376,7 +376,7 @@ export default function DowntimePage() {
                 Running total %
               </span>
             </div>
-            <div style={{ height: 280 }}>
+            <div style={{ flex: '1 1 auto', minHeight: 280 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart data={view.bars} margin={{ top: 16, right: 8, bottom: 8, left: -12 }}>
                   <CartesianGrid stroke={C.line} strokeDasharray="4 4" vertical={false} />
@@ -392,7 +392,7 @@ export default function DowntimePage() {
                   />
                   <YAxis
                     yAxisId="left"
-                    domain={[0, Math.ceil(view.maxMinutes * 1.2)]}
+                    domain={[0, Math.ceil((view.maxMinutes * 1.2) / 100) * 100]}
                     tick={{ fontSize: 11, fill: C.faint }}
                     axisLine={false}
                     tickLine={false}
