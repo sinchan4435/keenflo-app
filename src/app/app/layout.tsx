@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import Foreman from '@/components/foreman/Foreman';
 import Sidebar from '@/components/Sidebar';
 import { C } from '@/components/ui';
 import { KeenFloProvider, useKeenFlo } from '@/lib/use-keenflo';
@@ -60,6 +61,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             {children}
           </main>
         </div>
+        <Foreman />
       </div>
     </KeenFloProvider>
   );
